@@ -1,0 +1,61 @@
+{{!< default}}
+{{#post}}
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">{{{title}}}</h1>
+    <div class="text-sm opacity-60">
+      <time>{{date format="YYYY-MM-DD"}}</time>
+      <span class="mx-1">&middot;</span>
+      {{#foreach authors}}
+			<span>{{name}}</span>
+	  {{/foreach}}
+    </div>
+  </header>
+
+  <section>{{content}}</section>
+
+  <!-- Post Tags -->
+  {{#if tags}}
+  <footer class="mt-12 flex flex-wrap">
+    {{#foreach tags}}
+    <a
+      class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
+      href="{{url}}" title="{{name}}"
+      >{{name}}</a
+    >
+    {{/foreach}}
+  </footer>
+  {{/if}}
+
+
+  <!-- Post Nav -->
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    {{#next_post}}
+    <a class="flex w-1/2 items-center p-6 pr-3 no-underline" href="{{url}}"
+      ><span class="mr-1.5">←</span><span>{{title}}</span></a
+    >
+    {{/next_post}}
+
+    {{#prev_post}}
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end p-6 pl-3 no-underline"
+      href="{{url}}"
+      ><span>{{title}}</span><span class="ml-1.5">→</span></a
+    >
+    {{/prev_post}}
+  </nav>
+{{!--
+  <!-- Disqus -->
+  {{ if and site.DisqusShortname (not (eq .Params.comments false)) }}
+  <div id="disqus_thread"></div>
+  <script>
+    const disqusShortname = '{{ site.DisqusShortname }}';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
+  {{ end }}
+</article>{{--}}
+
+{{/post}}

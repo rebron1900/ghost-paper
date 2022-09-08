@@ -1,19 +1,50 @@
 {
-  "name": "hugo-paper",
+  "name": "ghost-paper",
   "version": "6.2.0",
-  "repository": "https://github.com/nanxiaobei/hugo-paper.git",
-  "author": "nanxiaobei <nanxiaobei@gmail.com>",
+  "description": "A simple, clean, flexible Hugo theme.",
+  "author": {
+    "name": "1900",
+    "email": "me@1900.live",
+    "url": "https://1900.live/"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+        "Minimal",
+        "Magazine"
+    ]
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme",
+    "simple",
+    "clean"
+  ],
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/rebron1900/ghost-paper.git"
+  },
+  "bugs": "https://github.com/rebron1900/ghost-paper/issues",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "ghost": ">=5.0.0"
+  }, 
+  "screenshots": {
+    "desktop": "assets/screenshot-desktop.jpg",
+    "mobile": "assets/screenshot-mobile.jpg"
+  },
   "scripts": {
     "start": "hugo server --buildDrafts --watch --minify --disableFastRender --themesDir=../.. --source=exampleSite --bind=0.0.0.0 --baseURL=192.168.0.102 --port=1313",
     "open": "open http://0.0.0.0:1313/",
-    "css": "pnpm tailwindcss -i ./assets/app.css -o ./assets/main.css --watch",
+    "css": "pnpm tailwindcss -i ./assets/css/app.css -o ./assets/css/main.css --watch",
     "go": "cp exampleSite/go.default.mod exampleSite/go.mod",
     "site": "hugo --gc --minify --themesDir=../.. --source=exampleSite --config=go.toml,config.toml",
     "dev": "killall hugo & pnpm css & pnpm start & pnpm open",
     "build": "pnpm go & pnpm site"
   },
+  "card_assets": true,
   "dependencies": {
     "@tailwindcss/typography": "^0.5.4",
     "prettier": "^2.7.1",
@@ -21,5 +52,131 @@
     "stylelint": "^14.10.0",
     "stylelint-config-one": "^2.3.1",
     "tailwindcss": "^3.1.8"
+  },    "config": {
+    "posts_per_page": 10,
+    "image_sizes": {
+        "xxs": {
+            "width": 30
+        },
+        "xs": {
+            "width": 100
+        },
+        "s": {
+            "width": 300
+        },
+        "m": {
+            "width": 600
+        },
+        "l": {
+            "width": 1000
+        },
+        "xl": {
+            "width": 2000
+        }
+    },
+    "card_assets": true,
+    "custom": {
+        "bg_color" : {
+            "type": "text",
+            "default": "#faf6f1",
+            "group": "homepage"
+        },
+        "avatar_url" : {
+            "type": "text",
+            "default": "https://avatars.githubusercontent.com/u/7929884?v=4",
+            "group": "homepage"
+        },
+        "monoDarkIcon" : {
+            "type": "boolean",
+            "default": true,
+            "group": "homepage"
+        },
+        "Params_name" : {
+            "type": "text",
+            "default": "Personal",
+            "group": "homepage"
+        },
+        "Params_bio" : {
+            "type": "text",
+            "default": "a Personal blog",
+            "group": "homepage"
+        },
+        "title_font": {
+            "type": "select",
+            "options": [
+                "Modern sans-serif",
+                "Elegant serif"
+            ],
+            "default": "Modern sans-serif"
+        },
+        "body_font": {
+            "type": "select",
+            "options": [
+                "Modern sans-serif",
+                "Elegant serif"
+            ],
+            "default": "Elegant serif"
+        },
+        "show_publication_cover": {
+            "type": "boolean",
+            "default": true,
+            "group": "homepage"
+        },
+        "header_style": {
+            "type": "select",
+            "options": [
+                "Center aligned",
+                "Left aligned",
+                "Hidden"
+            ],
+            "default": "Center aligned",
+            "group": "homepage"
+        },
+        "show_logo_in_navigation": {
+            "type": "boolean",
+            "default": false,
+            "group": "homepage"
+        },
+        "feed_layout": {
+            "type": "select",
+            "options": [
+                "Classic",
+                "Grid",
+                "List"
+            ],
+            "default": "Classic",
+            "group": "homepage"
+        },
+        "color_scheme": {
+            "type": "select",
+            "options": [
+                "Light",
+                "Dark",
+                "Auto"
+            ],
+            "default": "Light"
+        },
+        "post_image_style": {
+            "type": "select",
+            "options": [
+                "Wide",
+                "Full",
+                "Small",
+                "Hidden"
+            ],
+            "default": "Wide",
+            "group": "post"
+        },
+        "email_signup_text": {
+            "type": "text",
+            "default": "Sign up for more like this.",
+            "group": "post"
+        },
+        "show_recent_posts_footer": {
+            "type": "boolean",
+            "default": true,
+            "group": "post"
+        }
+    }
   }
 }

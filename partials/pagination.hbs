@@ -1,0 +1,9 @@
+<!-- Main Nav -->
+<nav class="mt-24 flex">
+  {{#if prev}}
+  <a class="btn" href="{{page_url prev}}">← {{t "Newer Posts"}}</a>
+  {{/if}}<!---->
+  {{#if next}}
+  <a class="btn ml-auto" href="{{page_url next}}">{{t "Older Posts"}} →</a>
+  {{/if}}<!---->
+</nav>

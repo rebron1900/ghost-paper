@@ -1,0 +1,32 @@
+{{!< default}}
+
+
+<div class="-mt-4 mb-20 flex items-start">
+  {{#if @custom.avatar_url }}
+  <div
+    class="mr-5 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow-xl dark:bg-white/80"
+  >
+    <img
+      class="my-0 h-14 w-14 rounded-full !bg-black/5 hover:animate-spin dark:!bg-black/80"
+      src="{{ @custom.avatar_url }}"
+    />
+  </div>
+
+  {{/if }}<!---->
+  {{#if @custom.Params_name }}
+  <div>
+    <h1 class="mt-1.5 mb-3 text-3xl font-bold">{{  @custom.Params_name }}</h1>
+    <div class="break-words">
+      {{ @custom.Params_bio  }}
+    </div>
+  </div>
+  {{/if}}
+</div>
+
+{{> "loop"}}
+
+
+{{pagination}}
+
+
+
