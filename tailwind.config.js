@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./**/*.hbs'],
+  content: [
+    '*.hbs',
+    './partials/*.hbs',
+  ],
   darkMode: 'class',
   theme: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography')
+  ]
 };

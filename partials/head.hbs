@@ -14,13 +14,17 @@
   <meta name="theme-color" />
 
   <!-- reload -->
-  <link rel="preload stylesheet" as="style" href="{{asset "assets/css/app.css"}}" />
-  <link rel="preload stylesheet" as="style" href="{{asset "assets/css/custom.css"}}" />
+
   <link rel="preload stylesheet" as="style" href="{{asset "assets/css/main.css"}}" />
+  <link rel="preload stylesheet" as="style" href="{{asset "assets/css/custom.css"}}" />
   <link rel="preload" as="image" href="{{asset "assets/imgs/theme.png"}}"/>
   <link rel="icon"  as="image" href="{{asset "assets/imgs/favicon.ico"}}" />
   <link rel="apple-touch-icon"  as="image" href="{{asset "assets/imgs/apple-touch-icon.png"}}" />
-  <script  src="{{asset "assets/js/highlight.min.js"}}" onload="hljs.initHighlightingOnLoad();"></script>
+  <script defer="" src="/assets/public/cards.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/public/cards.min.css">
+  <link rel="stylesheet" type="text/css" href="https://highlightjs.org/static/demo/styles/github-dark.css" >
+  <script  defer  src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.6.0/highlight.min.js" onload="hljs.initHighlightingOnLoad();"></script>
+
 
   <!-- ghost head uouput -->
   {{ghost_head}}

@@ -44,18 +44,36 @@
     >
     {{/prev_post}}
   </nav>
-{{!--
-  <!-- Disqus -->
-  {{ if and site.DisqusShortname (not (eq .Params.comments false)) }}
-  <div id="disqus_thread"></div>
-  <script>
-    const disqusShortname = '{{ site.DisqusShortname }}';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  {{ end }}
-</article>{{--}}
+
+  {{#if @custom.disqus_shortname }}
+  <div id="tcomment"></div>
+  <script>twikoo.init({ envId: '{{@custom.disqus_shortname}}', el: '#tcomment' })</script>
+  {{/if}}
+</article>
 
 {{/post}}
+
+<script>
+  // Format code blocks and add line numbers
+	function codestyling() {
+	$('pre code').each(function(i, e) {
+				// Code highlight
+		hljs.highlightBlock(e);
+		// No lines for plain text blocks
+		if (!$(this).hasClass('language-text')) {
+			var code = $(this);
+					// Calculate amount of lines
+			var lines = code.html().split(/\n(?!$)/g).length;
+			var numbers = [];
+			if (lines > 1) {
+			lines++;
+			}
+			for (i = 1; i < lines; i++) {
+			numbers += '<span class="line" aria-hidden="true">' + i + '</span>';
+			}
+			code.parent().append('<div class="lines">' + numbers + '</div>');
+		}
+		});
+	}
+	codestyling();
+</script>

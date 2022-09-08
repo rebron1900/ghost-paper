@@ -4,8 +4,7 @@
       >{{@site.title}}</a
     >
     <a
-      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer 
-      [background:url({{@site.url}}/assets/imgs/theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      class="btn-dark ml-6 h-6 w-6 shrink-0 cursor-pointer {{#if @custom.monoDarkIcon }}[background:url(/assets/imgs/theme.svg)_left_center/cover_no-repeat] dark:invert{{ else }}[background:url(/assets/imgs/theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)]{{/if}} dark:[background-position:right]"
     ></a>
   </div>
 
